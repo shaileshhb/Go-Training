@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 
-	number := mathOperations(add)
+	number := mathOperations(10, 5, subtract)
 	fmt.Println(number)
 
 }
@@ -24,8 +24,8 @@ func multiply(num1, num2 int) int {
 	return num
 }
 
-func mathOperations(funcOperation func(num1, num2 int) int) int {
+func mathOperations(num1, num2 int, funcOperation func(num1, num2 int) int) int {
 
-	num := funcOperation(10, 5)
+	num := funcOperation(num1, num2)
 	return num
 }
