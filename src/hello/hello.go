@@ -4,6 +4,8 @@ import "fmt"
 
 func main() {
 	fmt.Println("Hello world")
+	testForGo()
+	TestForGo()
 }
 
 // private function uses camelCasing
@@ -11,7 +13,7 @@ func testForGo() {
 	fmt.Println("testForGo")
 }
 
-// public function in go
 func TestForGo() {
+	// public function in go
 	fmt.Println("TestForGo")
 }
