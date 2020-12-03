@@ -26,4 +26,5 @@ func main() {
 
 	// *myIntPointer = 42
 	// fmt.Println(myInt)
+
 }
