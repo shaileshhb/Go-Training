@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 
-	number := mathOperations(10, 5, subtract)
+	number := mathOperations(10, 5, add)
 	fmt.Println(number)
 
 }
