@@ -14,7 +14,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	
+
 	for folders, files := range dir {
 		if folders != "CurrentFolder" {
 			fmt.Println(folders)
@@ -29,10 +29,9 @@ func main() {
 	}
 }
 
-
 // readDir will read the dir and return all files and folders as map[string]folder
-func readDir(folderName string)(map[string]folders, error) {
-	
+func readDir(folderName string) (map[string]folders, error) {
+
 	var dir = make(map[string]folders)
 	files, err := ioutil.ReadDir(folderName)
 	var currentFolders folders
@@ -43,7 +42,7 @@ func readDir(folderName string)(map[string]folders, error) {
 
 	for _, file := range files {
 		var folder folders
-		f, err := os.Open(folderName +"\\"+file.Name())
+		f, err := os.Open(folderName + "\\" + file.Name())
 		if err != nil {
 			return nil, err
 		}
@@ -52,11 +51,12 @@ func readDir(folderName string)(map[string]folders, error) {
 			return nil, err
 		}
 		if info.IsDir() {
-			currentFile, err := ioutil.ReadDir(folderName+"\\"+file.Name())
+			currentFile, err := ioutil.ReadDir(folderName + "\\" + file.Name())
 			if err != nil {
 				return nil, err
 			}
 			for _, fileName := range currentFile {
+				fmt.Println("files:", fileName.Name())
 				folder.files = append(folder.files, fileName.Name())
 			}
 			dir[file.Name()] = folder
@@ -66,7 +66,6 @@ func readDir(folderName string)(map[string]folders, error) {
 	}
 
 	dir["CurrentFolder"] = currentFolders
-
 
 	return dir, nil
 }
