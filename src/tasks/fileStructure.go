@@ -20,13 +20,13 @@ func main() {
 	// fmt.Println(directory)
 	for _, folders := range directory {
 		fmt.Println(folders.folderName)
-		for _, files := range folders.fileStructure.files {
+		for _, files := range folders.files {
 			fmt.Println("\t", files)
 		}
 		if folders.folderName != "Root" {
 			for _, subFolder := range *folders.folderPtr {
 				fmt.Println("\t", subFolder.folderName)
-				for _, subFiles := range subFolder.fileStructure.files {
+				for _, subFiles := range subFolder.files {
 					fmt.Println("\t\t", subFiles)
 				}
 			}
