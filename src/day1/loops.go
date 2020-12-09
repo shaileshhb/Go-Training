@@ -15,4 +15,16 @@ func main() {
 	for ; j < 5; j++ {
 		fmt.Println(j)
 	}
+
+	fmt.Println("While loop")
+
+	x := 0
+	for true {
+		if x == 5 {
+			break
+		}
+		fmt.Println(x)
+		x++
+	}
+
 }
