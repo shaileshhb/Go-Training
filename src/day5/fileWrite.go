@@ -13,14 +13,23 @@ func main() {
 	checkErr(err)
 	fmt.Print("Successful")
 
-	f, err := os.Create("file2.txt")
+	// append to current file contents
+	file, err := os.OpenFile("file.txt", os.O_APPEND|os.O_WRONLY, 0644)
 	checkErr(err)
-	defer f.Close()
+	defer file.Close()
 
-	data2 := []byte("Hello From fileWrite.go")
-	bytesWritten, err := f.Write(data2)
-	checkErr(err)
-	fmt.Println("Bytes Written: ", bytesWritten)
+	if _, err := file.WriteString("\nappending to current file"); err != nil {
+		log.Fatal(err)
+	}
+
+	// f, err := os.Create("file2.txt")
+	// checkErr(err)
+	// defer f.Close()
+
+	// data2 := []byte("Hello From fileWrite.go")
+	// bytesWritten, err := f.WriteString("Hello From fileWrite.go")
+	// checkErr(err)
+	// fmt.Println("Bytes Written: ", bytesWritten)
 }
 
 func checkErr(err error) {

@@ -19,17 +19,31 @@ func main() {
 
 	// fmt.Println(directory)
 	for _, folders := range directory {
-		fmt.Println(folders.folderName)
-		for _, files := range folders.files {
-			fmt.Println("\t", files)
-		}
+		// fmt.Println(i)
 		if folders.folderName != "Root" {
-			for _, subFolder := range *folders.folderPtr {
-				fmt.Println("\t", subFolder.folderName)
-				for _, subFiles := range subFolder.files {
-					fmt.Println("\t\t", subFiles)
-				}
-			}
+			printFolder(folders, "")
+		}
+
+	}
+
+}
+
+func printFolder(folder folderStructure, tabs string) {
+
+	fmt.Print(tabs)
+
+	if folder.folderName != "Root" {
+		fmt.Println(folder.folderName)
+	}
+	tabs += "\t"
+	for _, files := range folder.files {
+		fmt.Println(tabs, files)
+	}
+
+	if len(*folder.folderPtr) > 0 {
+		for _, f := range *folder.folderPtr {
+			printFolder(f, tabs)
+
 		}
 	}
 

@@ -19,17 +19,16 @@ type circle struct {
 	radius float64
 }
 
-func (c *circle)area() float64 {
-	return 22/7 * (c.radius * c.radius)
+func (c *circle) area() float64 {
+	return 22 / 7 * (c.radius * c.radius)
 }
 
-func (c *circle)perimeter() float64 {
-	return 22/7 * c.radius
+func (c *circle) perimeter() float64 {
+	return 22 / 7 * c.radius
 }
-
 
 func passInterface(sh shape) {
-	fmt.Println("Area: ",sh.area())
-	fmt.Println("Perimeter: ",sh.perimeter())
-	
+	fmt.Println("Area: ", sh.area())
+	fmt.Println("Perimeter: ", sh.perimeter())
+
 }

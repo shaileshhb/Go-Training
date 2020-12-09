@@ -1,1 +1,2 @@
 Hello From fileWrite.go
+appending to current file
