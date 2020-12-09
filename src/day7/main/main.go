@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	ch := make(chan int)
+	ch := make(chan uint)
 
 	var custOneOrder []order.Orders
 	custOne := customer.SetCustomerInfo(101, "Sam", "Thomas", &custOneOrder)
@@ -16,6 +16,7 @@ func main() {
 	go custOne.PlaceOrder(2, 4000, ch)
 	go custOne.PlaceOrder(1, 1000, ch)
 
+	fmt.Println("Order Successfully Placed with order id", <-ch)
 	fmt.Println("Order Successfully Placed with order id", <-ch)
 
 }

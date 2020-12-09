@@ -1,6 +1,6 @@
 package order
 
-func SetOrder(id, quantity, cost int) *Orders {
+func SetOrder(id uint, quantity, cost int) *Orders {
 	return &Orders{
 		id:       id,
 		quantity: quantity,
@@ -8,7 +8,7 @@ func SetOrder(id, quantity, cost int) *Orders {
 	}
 }
 
-func (o *Orders) ID() int {
+func (o *Orders) ID() uint {
 	return o.id
 }
 
@@ -22,7 +22,7 @@ func (o *Orders) Cost() int {
 
 // Orders will have orders info
 type Orders struct {
-	id       int
+	id       uint
 	quantity int
 	cost     int
 }

@@ -16,9 +16,9 @@ func SetCustomerInfo(id int, firstName, lastName string, orders *[]order.Orders)
 
 }
 
-func (c *Customer) PlaceOrder(quantity, cost int, ch chan int) {
+func (c *Customer) PlaceOrder(quantity, cost int, ch chan uint) {
 
-	orderID := rand.Intn(50)
+	var orderID uint = uint(rand.Intn(50))
 
 	order := order.SetOrder(orderID, quantity, cost)
 	*c.orders = append(*c.orders, *order)
